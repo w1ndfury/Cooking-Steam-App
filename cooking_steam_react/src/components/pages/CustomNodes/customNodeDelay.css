@@ -1,0 +1,20 @@
+.delay {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    line-height: 11px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 400;
+    vertical-align: middle;
+    margin: 10px 40px;
+    padding: 13%;
+    width: 150px;
+    height: 60px;
+    background-color:gold;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    z-index: -1;
+    border: 1px solid black;
+}

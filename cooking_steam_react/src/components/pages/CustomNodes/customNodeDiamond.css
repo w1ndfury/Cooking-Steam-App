@@ -1,0 +1,36 @@
+.diamond {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    line-height: 15px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 400;
+    vertical-align: middle;
+    margin: 10px 40px;
+    padding: 13%;
+
+    height: 130px;
+    width: 130px;
+}
+
+    .diamond:before {
+        position: absolute;
+        content: '';
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        transform: rotateX(45deg) rotateZ(45deg);
+        border: 1px solid black;
+        z-index: -1;
+        background-color: #CECECE;
+    }
+
+.diamond:after {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    transform: rotateX(45deg) rotateZ(45deg);
+}

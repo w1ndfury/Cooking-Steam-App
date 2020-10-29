@@ -1,0 +1,83 @@
+/* Split the screen  */
+.split {
+    height: 100%;
+    width: 90%;
+    position: absolute;
+    z-index: 1;
+    top: 0%;
+    overflow-x: hidden;
+    padding-top: 30px;
+
+}
+
+
+/* Control the left side */
+.left {
+    position: initial;
+    width: 100%;
+    text-align: center;
+    background-color: cadetblue;
+    color: aliceblue;
+    font-size: 1.3em;
+    margin: 0;
+    padding: 0;
+}
+
+.UserTools {
+    width: 10%;
+    position: initial;
+    left: 0%; 
+}
+
+.mybutton {
+    display:flex;
+    position: initial;
+    height: auto;
+    width: 100%;
+    font-size: 0.6em;
+    font-weight: bold;
+    padding: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    line-height: 11px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 400;
+    vertical-align: middle;
+}
+
+.mytext {
+    position: initial;
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    font-family: 'Open Sans', sans-serif;
+
+}   
+
+.h1 {
+    display: block;
+    font-size: 0.6em;
+    margin-top: 1em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+/* Control the right side */
+.right {
+    right: 0%;
+    position: absolute;
+    text-align: center;
+    background-color: antiquewhite;
+}
+
+ul {
+    list-style-type: none;
+}
+
+
+

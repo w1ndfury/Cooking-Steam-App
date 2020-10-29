@@ -5,8 +5,10 @@
     "\\cooking_steam_react\\public",
     "\\cooking_steam_react\\src",
     "\\cooking_steam_react\\src\\components",
-    "\\cooking_steam_react\\src\\components\\pages"
+    "\\cooking_steam_react\\src\\components\\pages",
+    "\\cooking_steam_react\\src\\components\\pages\\CustomNodes",
+    "\\cooking_steam_react\\src\\components\\pages\\Data"
   ],
-  "SelectedNode": "\\cooking_steam_react\\public\\favicon.ico",
+  "SelectedNode": "\\cooking_steam_react\\src\\components\\pages\\Data\\data.js",
   "PreviewInSolutionExplorer": false
 }
