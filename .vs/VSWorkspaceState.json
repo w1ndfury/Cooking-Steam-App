@@ -2,13 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\cooking_steam_react",
-    "\\cooking_steam_react\\public",
     "\\cooking_steam_react\\src",
     "\\cooking_steam_react\\src\\components",
     "\\cooking_steam_react\\src\\components\\pages",
-    "\\cooking_steam_react\\src\\components\\pages\\CustomNodes",
-    "\\cooking_steam_react\\src\\components\\pages\\Data"
+    "\\cooking_steam_react\\src\\components\\pages\\Editor",
+    "\\cooking_steam_react\\src\\components\\pages\\Editor\\Data",
+    "\\cooking_steam_react\\src\\components\\pages\\Editor\\Features"
   ],
-  "SelectedNode": "\\cooking_steam_react\\src\\components\\pages\\Data\\data.js",
+  "SelectedNode": "\\cooking_steam_react\\src\\components\\pages\\Editor\\Editor.css",
   "PreviewInSolutionExplorer": false
 }

@@ -1,0 +1,23 @@
+.nodes {
+    margin:10px;
+    border-bottom: 2px solid black; /* black border */
+    border-right: 2px solid black; /* black border */
+}
+.edges {
+    margin: 10px;
+    border-bottom: 2px solid black; /* black border */
+    border-right: 2px solid black; /* black border */
+}
+
+.nodes_edges {
+    border: 2px solid black;
+    height: 100%;
+    background-color: white; /* white background */
+    vertical-align: middle;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 12px;
+    overflow-y: scroll;
+}
+
