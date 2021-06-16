@@ -15,8 +15,8 @@ const Sidebar = () => {
             <div className="nodes_edges">        
                 <div className="nodes">Nodes</div>
                 {nodes.map((node) => (
-                    <div key={node.id}>
-                        Node {node.id} {node.type}
+                    <div className="myNodes" key={node.id}>
+                        Node {node.id} "{node.data.label}"
                     </div>
                 ))}
 
@@ -27,6 +27,7 @@ const Sidebar = () => {
                     </div>
                 ))}                      
             </div>
+
             <div>
                 <Button>SAVE RECIPE</Button>
             </div>

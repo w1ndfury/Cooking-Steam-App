@@ -6,9 +6,9 @@
     "\\cooking_steam_react\\src\\components",
     "\\cooking_steam_react\\src\\components\\pages",
     "\\cooking_steam_react\\src\\components\\pages\\Editor",
-    "\\cooking_steam_react\\src\\components\\pages\\Editor\\Data",
+    "\\cooking_steam_react\\src\\components\\pages\\Editor2",
     "\\cooking_steam_react\\src\\components\\pages\\Editor\\Features"
   ],
-  "SelectedNode": "\\cooking_steam_react\\src\\components\\pages\\Editor\\Editor.css",
+  "SelectedNode": "\\cooking_steam_react\\src\\components\\pages\\Editor2\\Editor2.js",
   "PreviewInSolutionExplorer": false
 }

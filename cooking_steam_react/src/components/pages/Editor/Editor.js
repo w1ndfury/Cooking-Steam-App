@@ -2,9 +2,9 @@ import '../../../App.css'
 import './Editor.css'
 
 import React, { useState, useEffect, useCallback, Fragment } from 'react';
-import ReactFlow, { removeElements, addEdge, Background, Controls, ReactFlowProvider,updateEdge } from 'react-flow-renderer';
+import ReactFlow, { useZoomPanHelper, removeElements, addEdge, Background, Controls, ReactFlowProvider,updateEdge } from 'react-flow-renderer';
 
-import data from './Data/data';
+/*import data from './Data/data';*/
 import data2 from './Data/data2';
 import data3 from './Data/data3';
 import mydata from './Data/mydata';
@@ -33,6 +33,8 @@ import Start from './icons/start.png';
 import Line from './icons/line.png';
 import Arrow from './icons/arrow.png';
 import Arrowhead from './icons/arrowhead.png';
+
+import localforage from 'localforage';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -121,6 +123,12 @@ const nodeTypes = {
     NodeIngredient: customNodeIngredient
 };
 
+localforage.config({
+    name: 'react-flow-docs',
+    storeName: 'flows',
+});
+const flowKey = 'example-flow';
+
 
 const Editor = () => {
 
@@ -128,6 +136,7 @@ const Editor = () => {
     const classes = useStyles();
 
     // My Hooks
+    const [rfInstance, setRfInstance] = useState(null);
     const [reactflowInstance, setReactflowInstance] = useState(null);
     const [elements, setElements] = useState([]);
     const [name, setName] = useState("");
@@ -138,39 +147,13 @@ const Editor = () => {
 
     const handleClick = () => setAnimated(!animated);
 
-    
 
-    //Node types that spawn by clicking the button!
-   /* const addNode = () => {
-        setElements(e => e.concat({
-            id: (e.length + 1).toString(),
-            data: { label: `${name}` },
-            position: { x: 0 * window.innerWidth, y: 0 * window.innerHeight }
-        }));
-    };
+    /*Node types that spawn by clicking the button!*/
 
-    const addInputNode = () => {
-        setElements(e => e.concat({
-            id: (e.length + 1).toString(),
-            data: { label: `${name}` },
-            type: 'input',
-            position: { x: 0 * window.innerWidth, y: 0 * window.innerHeight }
-        }));
-    };
-
-    const addOutputNode = () => {
-        setElements(e => e.concat({
-            id: (e.length + 1).toString(),
-            data: { label: `${name}` },
-            type:'output',
-            position: { x: 0 * window.innerWidth, y: 0 * window.innerHeight }
-        }));
-    };
-*/
     const addCustomNodeDiamond = () => {
         setElements(e => e.concat({
             id: (e.length + 1).toString(),
-            data: { label: `${name}` },
+            data: { label: ""},
             type: 'NodeDiamond',
             position: { x: 0 * window.innerWidth, y: 0 * window.innerHeight }
         }));
@@ -248,6 +231,24 @@ const Editor = () => {
         },
         [reactflowInstance]
     );
+
+    const onSave = useCallback(() => {
+        if (rfInstance) {
+            const flow = rfInstance.toObject();
+            localforage.setItem(flowKey, flow);
+        }
+    }, [rfInstance]);
+    const onRestore = useCallback(() => {
+        const restoreFlow = async () => {
+            const flow = await localforage.getItem(flowKey);
+            if (flow) {
+                const [x = 0, y = 0] = flow.position;
+                setElements(flow.elements || []);
+                
+            }
+        };
+        restoreFlow();
+    }, [setElements]);
     
   
     return (
@@ -257,10 +258,8 @@ const Editor = () => {
             <Grid container spacing={1} >
                 <Grid container item xs={3} sm={2} md={2} spacing={1} max-height={100}> 
                     <Grid item xs={12} sm={12} md={12}>
-                            <span><input type="text" class="mytext" onChange={e => setName(e.target.value)} name="title" placeholder="Node Discription"/></span>
-
+                        <span><input type="text" class="mytext" onChange={e => setName(e.target.value)} name="title" placeholder="Node Discription"/></span>
                         <div class="GroupButtons">
-
                             <Button className={classes.decisionButton}
                             onClick={addCustomNodeDiamond} title="Decision"
                             ></Button>
@@ -282,7 +281,6 @@ const Editor = () => {
                             ></Button>
 
                         </div>
-
                         <div class="ArrowHeadButtons">
                             <div class="GroupButtons">
                                     <Button className={classes.lineButton} title="Line"
@@ -299,7 +297,6 @@ const Editor = () => {
                                 <input onClick={handleClick} checked={animated} type="checkbox" /> Animated Line
                             </div>
                         </div>
-
                         <div class="dataButtons">
                             <div class="GroupButtons">
                                 <Button onClick={() => setElements([])}>
@@ -314,6 +311,12 @@ const Editor = () => {
                                 <Button onClick={() => setElements(mydata)}>
                                         Data
                                 </Button>
+                            </div>
+                        </div>
+                        <div class="dataButtons">
+                            <div class="GroupButtons">
+                                <Button onClick={onSave}>save</Button>
+                                <Button onClick={onRestore}>restore</Button>
                             </div>
                         </div>
                     </Grid>
@@ -334,7 +337,7 @@ const Editor = () => {
                                     onElementClick={onElementClick}
                                     onElementsRemove={onElementsRemove}
                                     connectionLineComponent={ConnectionLine}
-                                    onLoad={onLoad}
+                                    onLoad={setRfInstance}
                                     onEdgeUpdate={onEdgeUpdate}
                                     onConnect={onConnect}
                                 >
