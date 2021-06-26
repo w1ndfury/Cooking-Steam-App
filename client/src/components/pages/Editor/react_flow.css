@@ -1,0 +1,9 @@
+/* Outer container */
+.react-flow {
+    background: rgba(33, 133, 50, 0.0);
+    width: '100%'; 
+    height: '100%';
+    /* background-image: url("./icons/board.png");
+    background-repeat: no-repeat;
+    background-size: auto; */
+}

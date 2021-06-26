@@ -1,13 +1,12 @@
-import React, { useState, memo } from 'react';
+import React, { memo} from 'react';
 import { Handle } from 'react-flow-renderer';
 import './customNodeDiamond.css'
 
 
 export default memo(({ data }) => {
 
-    const [name, setName] = useState({data});
-
     return (
+        
         <div class="nowheel">
             <Handle
                 type="target"
@@ -19,12 +18,12 @@ export default memo(({ data }) => {
             
             <div class="diamond">
                 <span>
-                    <textarea contenteditable="true" rows="70" cols="50" class="mylabeltext" value={data.label}
-                    onChange={e => data.label = setName(e.target.value)} name="title"></textarea>
+                    <textarea contentEditable="true" rows="70" cols="50" class="mylabeltext" defaultValue={data.label}
+                    onChange={e => data.label=e.target.value}  name="title" suppressContentEditableWarning={true}></textarea>            
                 </span>
             </div>
             
- 
+            
             <Handle
                 type="source"
                 position="right"
@@ -39,4 +38,5 @@ export default memo(({ data }) => {
             />
         </div>
     );
+    
 });

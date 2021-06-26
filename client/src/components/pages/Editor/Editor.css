@@ -1,0 +1,114 @@
+.Border {
+    height: 90vh;
+    background-repeat: no-repeat;
+    background-size: 103% 112%;
+    background-position: 50% 50%;
+    /* background: rgb(122, 81, 54); */
+}
+
+/* React-Flow Map */
+.Map {    
+    width:100%;
+    height:100%;
+    padding-top:3.4%;
+    padding-bottom:6.9%;
+    padding-left:5.6%;
+    padding-right:5.2%;
+    
+}
+
+.Delete-All-Button {
+    z-index: 2;
+    position: relative;
+}
+
+.ToolSidebar {
+    font-family: 'Open Sans', sans-serif;
+    border: 1px solid black;
+    max-height: 90vh;
+    padding: 5px;
+    height: 90vh;
+    overflow-y: scroll;
+    width:100%;
+}
+
+.ToolSidebar-2 {
+    border: 1px solid black;
+    background-color: white; /* white background */
+    vertical-align: middle;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 12px;
+}
+
+.ToolSidebar-1 .mytext {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 12px;
+    width: 100%;
+    background-color: white;
+    border: 1px solid black; /* black border */
+    margin-bottom: 10px; /* made gap between divs */
+    vertical-align: middle;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+.ToolSidebar-1 .GroupButtons {
+    border: 1px solid black;
+    background-color: white; /* white background */
+    vertical-align: middle;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 10px; /* made gap between divs */
+}
+
+
+.ToolSidebar-1 .GroupButtons button {
+    background-color: white; /* white background */
+    border: 1px solid white;
+    color: black; /* White text */
+    cursor: pointer; /* Pointer/hand icon */
+    padding: 10px 10px 10px 10px; /* Some padding */
+    font-size: 15px;
+    font-weight: 400;
+    
+}
+
+.ToolSidebar-1 .GroupButtons:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.ToolSidebar-1 .GroupButtons button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.ToolSidebar-1 .GroupButtons button:hover {
+    background-color:antiquewhite;
+}
+
+.ToolSidebar-1 .ArrowHeadButtons {
+    margin-bottom: 10px; /* made gap between divs */
+}
+
+.ToolSidebar-1 .dataButtons {
+    margin-bottom: 10px; /* made gap between divs */
+}
+
+.ToolSidebar .ToolSidebar-2 {
+    margin-bottom: 10px; /* made gap between divs */
+}
+
+
+
+
+

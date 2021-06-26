@@ -4,19 +4,15 @@ version: "3"
 services:
 
   # Frontend Service 
-  front_end:
-
-    container_name: front_end_react
-    
+  client:
+    container_name: client
     build:
-        context: ./cooking_steam_react
-        dockerfile: Dockerfile
-    
+        context: ./client
+        dockerfile: Dockerfile 
     stdin_open: true
     tty: true
-
     ports:
       - "3000:3000"
     volumes:
-      - "/cooking_steam_react/app/node_modules"
-      - "./cooking_steam_react:/app"
+      - "/client/app/node_modules"
+      - "./client:/app"
