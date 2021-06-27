@@ -1,0 +1,100 @@
+.container {
+    width:100%;
+    margin-top:15px;
+    font-style: oblique;
+    text-align:right;
+}
+
+p { 
+    margin-right:3%;
+    display:inline-block;
+}
+
+p span {
+    line-height:1;
+    display:inline-block;
+    margin:10px 4px 8px 7px; 
+
+    padding:.6em;
+    -webkit-box-shadow:3px 3px 0px 0px rgba(50, 50, 50, 1);
+    -moz-box-shadow:3px 3px 0px 0px rgba(50, 50, 50, 1);
+    box-shadow:3px 3px 0px 0px rgba(50, 50, 50, 1);
+}
+
+.small {
+    padding:.4em .25em;
+    margin-right:2px;
+}
+
+.punct {
+    padding:.4em .35em;
+    background-color:#aa71eb;
+    transform:rotate(-7deg);
+    -moz-transform:rotate(-7deg);
+    -ms-transform:rotate(-7deg);
+    -webkit-transform:rotate(-7deg);
+}
+
+.up {
+    background-color:#50c7b3;
+    transform:rotate(10deg);
+    -moz-transform:rotate(10deg);
+    -ms-transform:rotate(10deg);
+    -webkit-transform:rotate(10deg);
+}
+
+.upabit {
+    transform:rotate(-3deg);
+    -moz-transform:rotate(-3deg);
+    -ms-transform:rotate(-3deg);
+    -webkit-transform:rotate(-3deg);
+}
+
+.down {
+    background-color:#c3e07f;
+    transform:rotate(6deg);
+    -moz-transform:rotate(6deg);
+    -ms-transform:rotate(6deg);
+    -webkit-transform:rotate(6deg);
+}
+
+.downabit {
+    background-color:#cfe06c;
+    transform:rotate(3deg);
+    -moz-transform:rotate(3deg);
+    -ms-transform:rotate(3deg);
+    -webkit-transform:rotate(3deg);
+}
+.small.down, 
+.small.up, 
+.small.upabit, 
+.small.downabit {
+    margin-right:4px;
+}
+
+.higher {
+    background-color:#49ca2f;
+    position:relative;
+    top:-4px;
+}
+
+.lower {
+    position:relative;
+    top:3px;
+}
+
+.leftabit {
+    position:relative;
+    left:-4px;
+    background-color:#e08e8e;
+}
+
+.rightabit {
+    background-color:#6e82db;
+    position:relative;
+    left:3px;
+    transform:rotate(10deg);
+    -moz-transform:rotate(10deg);
+    -ms-transform:rotate(10deg);
+    -webkit-transform:rotate(10deg);
+}

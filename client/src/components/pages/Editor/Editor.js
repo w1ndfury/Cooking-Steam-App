@@ -50,7 +50,7 @@ import localforage from 'localforage';
 const useStyles = makeStyles((theme) => ({
     root: {
         height:"100%",
-        padding: 20
+        padding: 10
     },
     deleteAllButton: {
         backgroundImage: `url(${Sponge})`,
@@ -180,10 +180,6 @@ const Editor = () => {
        
     }, [reactflowInstance, elements.length]);
 
-   
-    const _onChange = () => {
-      console.log("test");  
-    };
 
     useEffect(() => {
         setElements((els) =>
@@ -305,10 +301,11 @@ const Editor = () => {
             <div className={classes.root}>
             {/* I am a container Grid with 2 (16px) spacing*/}   
                 <Grid container spacing={2}>
-                    <Grid container direction="column" justify="center" alignItems="center" item xs={12} sm={12} md={2} spacing={1}> 
-                        <div class="ToolSidebar">
+                    <Grid container direction="column" justify="center" alignItems="center" item xs={12} sm={12} md={2} spacing={1}>
+                    <div className="window"> 
+                        <div className="ToolSidebar">
                             <Grid item xs={12} sm={12} md={12} container direction="column" display="flex">
-                                <div class="ToolSidebar-1">
+                                <div className="ToolSidebar-1">
                                     
                                     <div>
                                         <span>
@@ -324,7 +321,7 @@ const Editor = () => {
                                     </div>
                                     
                                     {/* Εδώ επιλέγουμε τα nodes */}
-                                    <div class="GroupButtons">
+                                    <div className="GroupButtons">
                                         <Button className={classes.decisionButton}
                                             onClick={addCustomNodeDiamond} title="Decision"
                                         ></Button>
@@ -347,8 +344,8 @@ const Editor = () => {
                                     </div>
 
                                     {/* Εδώ επιλέγουμε τα arrows */}
-                                    <div class="ArrowHeadButtons">
-                                        <div class="GroupButtons">
+                                    <div className="ArrowHeadButtons">
+                                        <div className="GroupButtons">
                                             <Button className={classes.lineButton} title="Line"
                                                 onClick={() => setEdgeName("")}>                                  
                                             </Button>
@@ -366,8 +363,8 @@ const Editor = () => {
                                         </div>
                                     </div>
 
-                                    <div class="dataButtons">
-                                        <div class="GroupButtons">
+                                    <div className="dataButtons">
+                                        <div className="GroupButtons">
                                             <Button onClick={() => setElements(data3)}>
                                                 Data3
                                             </Button>
@@ -380,26 +377,71 @@ const Editor = () => {
                                         </div>
                                     </div>
 
-                                    <div class="dataButtons">
-                                        <div class="GroupButtons">
+                                    <div className="dataButtons">
+                                        <div className="GroupButtons">
                                             <Button onClick={onSave}>save</Button>
                                             <Button onClick={onRestore}>restore</Button>
                                         </div>
                                     </div>
                                     
                                 </div>
-                                <div class="ToolSidebar-2">                                                                      
+                                <div className="ToolSidebar-2">                                                                      
                                         <Sidebar />                    
                                 </div>
                             </Grid>
-                        </div> 
+                        </div>
+                        <input id="blind" type="checkbox"></input>
+                        <label className="blind" for="blind">
+                            <div className="lines"></div>
+                            <div className="lines"></div> 
+                            <div className="lines"></div> 
+                            <div className="lines"></div> 
+                            <div className="lines"></div> 
+                            <div className="lines"></div> 
+                            <div className="lines"></div> 
+                            <div className="lines"></div> 
+                            <div className="lines"></div> 
+                            <div className="lines"></div> 
+                            <div className="lines"></div> 
+                            <div className="lines"></div> 
+                            <div className="lines"></div>
+                            <div className="lines"></div> 
+                            <div className="lines"></div> 
+                            <div className="lines"></div> 
+                            <div className="lines"></div> 
+                            <div className="lines"></div>
+                            <div className="lines"></div> 
+                            <div className="lines"></div>
+                            <div className="lines"></div>
+                            <div className="lines"></div> 
+                            <div className="lines"></div> 
+                            <div className="lines"></div> 
+                            <div className="lines"></div> 
+                            <div className="lines"></div> 
+                            <div className="lines"></div> 
+                            <div className="lines"></div> 
+                            <div className="lines"></div> 
+                            <div className="lines"></div> 
+                            <div className="lines"></div> 
+                            <div className="lines"></div> 
+                            <div className="lines"></div>
+                            <div className="lines"></div> 
+                            <div className="lines"></div> 
+                            <div className="lines"></div> 
+                            <div className="lines"></div> 
+                            <div className="lines"></div>
+                            <div className="lines"></div> 
+                            <div className="lines"></div>    
+                        </label>
+                        <div className="roll"></div> 
+                        </div>
                     </Grid>
 
                     <Grid container item xs={12} sm={12} md={10} spacing={1}>
                         
                             <Grid item xs={12} sm={12} md={12}>
-                                <div class="Border" style={{ backgroundImage : `url(${Board})` }}>
-                                    <div class="Map" >
+                                <div className="Border" style={{ backgroundImage : `url(${Board})` }}>
+                                    <div className="Map">
                                     
                                         <ReactFlow
                                             connectionLineStyle={{ stroke: "#dde", strokeWidth: 2 }}
@@ -425,13 +467,13 @@ const Editor = () => {
                                             <Controls />
                                         </ReactFlow>
 
-                                        <div class="Delete-All-Button" >
-                                        <Button className={classes.deleteAllButton} 
-                                            onClick={() => setElements([])}
-                                            title="Delete All"
-                                        >    
-                                        </Button>
-                                    </div>
+                                        <div className="Delete-All-Button" >
+                                            <Button className={classes.deleteAllButton} 
+                                                onClick={() => setElements([])}
+                                                title="Delete All"
+                                            >    
+                                            </Button>
+                                        </div>
                                     </div>
                                     
                                 </div>
