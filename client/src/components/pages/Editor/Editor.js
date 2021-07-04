@@ -46,7 +46,7 @@ import Sponge from './icons/sponge.png';
 import localforage from 'localforage';
 
 
-/* Styles */
+/* Custom Styles for root and buttons in Toolbar */
 const useStyles = makeStyles((theme) => ({
     root: {
         height:"100%",
@@ -70,12 +70,12 @@ const useStyles = makeStyles((theme) => ({
         "background-repeat": "no-repeat",
         "background-position": "center",
         "background-size": "contain",
-        "height": 70,
-        "width": 70,
+        "height": 100,
+        "width": 100,
         "title":{
             "position": "relative",
-            "height": 70,
-            "width": 70
+            "height": 100,
+            "width": 100
         }
     },
     delayButton: {
@@ -83,32 +83,32 @@ const useStyles = makeStyles((theme) => ({
         "background-repeat": "no-repeat",
         "background-position": "center",
         "background-size": "contain",
-        "height": 70,
-        "width": 70
+        "height": 100,
+        "width": 100
     },
     endButton: {
         backgroundImage: `url(${End})`,
         "background-repeat": "no-repeat",
         "background-position": "center",
         "background-size": "contain",
-        "height": 70,
-        "width": 70
+        "height": 100,
+        "width": 100
     },
     ingredientButton: {
         backgroundImage: `url(${Ingredient})`,
         "background-repeat": "no-repeat",
         "background-position": "center",
         "background-size": "contain",
-        "height": 70,
-        "width":70
+        "height": 100,
+        "width":100
     },
     startButton: {
         backgroundImage: `url(${Start})`,
         "background-repeat": "no-repeat",
         "background-position": "center",
         "background-size": "contain",
-        "height": 70,
-        "width": 70
+        "height": 100,
+        "width": 100
     },
     lineButton: {
         backgroundImage: `url(${Line})`,
@@ -136,7 +136,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-
+/* Debugging */
 const onElementClick = (event, element) => console.log('click', element);
 const onNodeDragStop = (event, node) => console.log('drag stop', node);
 
@@ -165,7 +165,6 @@ const Editor = () => {
     const [rfInstance, setRfInstance] = useState(null);
     const [reactflowInstance, setReactflowInstance] = useState(null);
     const [elements, setElements] = useState([]);
-    const [nodeName, setNodeName] = useState('');
     const [edgeName, setEdgeName] = useState("");
     const [animated, setAnimated] = useState(false);  
 
@@ -181,22 +180,22 @@ const Editor = () => {
     }, [reactflowInstance, elements.length]);
 
 
-    useEffect(() => {
-        setElements((els) =>
-          els.map((el) => {
-            if (!isEdge(els)) {
-              // it's important that you create a new object here
-              // in order to notify react flow about the change
-              el.data = {
-                ...el.data,
-                label: nodeName,
-              };
-            }
+    // useEffect(() => {
+    //     setElements((els) =>
+    //       els.map((el) => {
+    //         if (!isEdge(els)) {
+    //           // it's important that you create a new object here
+    //           // in order to notify react flow about the change
+    //           el.data = {
+    //             ...el.data,
+    //             label: nodeName,
+    //           };
+    //         }
     
-            return el;
-          })
-        );
-      }, [nodeName, setElements]);
+    //         return el;
+    //       })
+    //     );
+    //   }, [nodeName, setElements]);
    
 
     /*Node types that spawn by clicking the button!*/
@@ -204,7 +203,7 @@ const Editor = () => {
     const addCustomNodeDiamond = () => {
         setElements(e => e.concat({
             id: (e.length + 1).toString(),
-            data: { label: `${nodeName}`},
+            data: { label: ""},
             type: 'NodeDiamond',
             position: { x: 0 * window.innerWidth, y: 0 * window.innerHeight }
         }));
@@ -213,7 +212,7 @@ const Editor = () => {
     const addCustomNodeOvalInput = () => {
         setElements(e => e.concat({
             id: (e.length + 1).toString(),
-            data: { label: `${nodeName}` },
+            data: { label: "" },
             type: 'NodeOvalInput',
             position: { x: 0 * window.innerWidth, y: 0 * window.innerHeight }
         }));
@@ -222,7 +221,7 @@ const Editor = () => {
     const addCustomNodeOvalOutput = () => {
         setElements(e => e.concat({
             id: (e.length + 1).toString(),
-            data: { label: `${nodeName}` },
+            data: { label: "" },
             type: 'NodeOvalOutput',
             position: { x: 0 * window.innerWidth, y: 0 * window.innerHeight }
         }));
@@ -231,7 +230,7 @@ const Editor = () => {
     const addCustomNodeDelay = () => {
         setElements(e => e.concat({
             id: (e.length + 1).toString(),
-            data: { label: `${nodeName}` },
+            data: { label: "" },
             type: 'NodeDelay',
             position: { x: 0 * window.innerWidth, y: 0 * window.innerHeight }
         }));
@@ -240,7 +239,7 @@ const Editor = () => {
     const addCustomNodeIngredient = () => {
         setElements(e => e.concat({
             id: (e.length + 1).toString(),
-            data: { label: `${nodeName}` },
+            data: { label: "" },
             type: 'NodeIngredient',
             position: { x: 0 * window.innerWidth, y: 0 * window.innerHeight }
         }));
@@ -306,20 +305,6 @@ const Editor = () => {
                         <div className="ToolSidebar">
                             <Grid item xs={12} sm={12} md={12} container direction="column" display="flex">
                                 <div className="ToolSidebar-1">
-                                    
-                                    <div>
-                                        <span>
-                                            <input 
-                                                type="text" 
-                                                className="mytext"
-                                                value={nodeName} 
-                                                onChange={e => setNodeName(e.target.value)} 
-                                                name="title" 
-                                                placeholder="Node Discription"
-                                            />
-                                        </span>
-                                    </div>
-                                    
                                     {/* Εδώ επιλέγουμε τα nodes */}
                                     <div className="GroupButtons">
                                         <Button className={classes.decisionButton}
@@ -391,7 +376,7 @@ const Editor = () => {
                             </Grid>
                         </div>
                         <input id="blind" type="checkbox"></input>
-                        <label className="blind" for="blind">
+                            <label className="blind" for="blind">
                             <div className="lines"></div>
                             <div className="lines"></div> 
                             <div className="lines"></div> 
@@ -447,8 +432,8 @@ const Editor = () => {
                                             connectionLineStyle={{ stroke: "#dde", strokeWidth: 2 }}
                                             connectionLineType="bezier"
                                             snapToGrid={true}
-                                            snapGrid={[20, 20]}
-                                            defaultZoom={1.3}
+                                            snapGrid={[2, 2]}
+                                            defaultZoom={1.1}
                                             nodeTypes={nodeTypes}
                                             elements={elements}
                                             onElementClick={onElementClick}
@@ -463,6 +448,7 @@ const Editor = () => {
                                             <Background
                                                 gap={32}
                                                 variant="dots"
+                                                color="white"
                                             />
                                             <Controls />
                                         </ReactFlow>

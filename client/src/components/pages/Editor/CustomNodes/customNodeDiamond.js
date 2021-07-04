@@ -5,21 +5,35 @@ import './customNodeDiamond.css'
 
 export default memo(({ data }) => {
 
+    const [text, setText] = React.useState(data.label);
+
+    function textChange(event) {
+        setText(event.target.value);
+        data.label = event.target.value;
+    }
+
     return (
         
-        <div class="nowheel">
+        <>
             <Handle
                 type="target"
                 position="top"
                 id="aa"
-                style={{ background:'black', top: '6px', left: '50.5%'}}
-                onConnect={(params) => console.log('handle onConnect', params)}               
+                style={{ background:'black', top: '6px', left: '50.5%'}}          
             />
             
             <div class="diamond">
                 <span>
-                    <textarea contentEditable="true" rows="70" cols="50" class="mylabeltext" defaultValue={data.label}
-                    onChange={e => data.label=e.target.value}  name="title" suppressContentEditableWarning={true}></textarea>            
+                    <textarea 
+                        contentEditable="true" 
+                        className="mylabeltext_diamond" 
+                        defaultValue={text}
+                        onChange={textChange}
+                        value={text}
+                        name="title"
+                        type="text" 
+                        suppressContentEditableWarning={true}>
+                    </textarea>            
                 </span>
             </div>
             
@@ -36,7 +50,7 @@ export default memo(({ data }) => {
                 id="b"
                 style={{ left: '50.5%', bottom: '6px', background: 'blue' }}
             />
-        </div>
+        </>
     );
     
 });

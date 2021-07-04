@@ -3,17 +3,43 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    line-height: 11px;
     text-align: center;
-    font-size: 11px;
-    font-weight: 400;
     vertical-align: middle;
+
     margin: 10px 40px;
-    padding: 13%;
     width: 150px;
     height: 60px;
     background-color: #ABB3EE;
     border-radius: 100px / 50px;
-    z-index: -1;
     border: 1px solid red;
+}
+
+.oval::before{
+    z-index: -1;  
+}
+
+.mylabeltext_oval_output {
+    text-align: center;
+    vertical-align: central;
+    background-color: transparent;
+    border: none;
+    resize: none;
+    width: 115px;
+    height: 35px;
+    padding-top: 12%;
+    padding-bottom: 12%;
+    overflow: hidden;
+    box-sizing: padding-box;
+    z-index: 2;
+
+    font-family: sans-serif;
+    line-height: 11px;
+    font-size: 11px;
+}
+
+.mylabeltext_oval_output:focus {
+    outline: none !important;
+    border: 1px solid transparent;
+    box-shadow: 0 0 2px #719ECE;
+    z-index: 2;
 }

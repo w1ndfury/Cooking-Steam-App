@@ -7,9 +7,11 @@ export default memo(({ data }) => {
         <>
 
             <div class="ingredient">
-                {data.label}
+                <span>
+                    <textarea contentEditable="true" class="mylabeltext_ingredient" defaultValue={data.label}
+                    onChange={e => data.label=e.target.value}  name="title" suppressContentEditableWarning={true}></textarea>            
+                </span>
             </div>
-
 
             <Handle
                 type="source"

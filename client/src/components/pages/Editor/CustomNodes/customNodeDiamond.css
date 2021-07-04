@@ -3,16 +3,15 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    line-height: 15px;
-    font-size: 11px;
     margin: 10px 40px;
     padding: 13%;
     height: 130px;
-    width: 130px;
+    width: 130px;  
     
 }
 
-.diamond:before {
+.diamond::before {
+    
     position: absolute;
     content: '';
     top: 0px;
@@ -21,7 +20,7 @@
     width: 100%;
     transform: rotateX(45deg) rotateZ(45deg);
     border: 1px solid black;
-    z-index: -99999;
+    z-index: -1;
     background-color: #CECECE;
 }
 
@@ -32,26 +31,30 @@
     transform: rotateX(45deg) rotateZ(45deg);
 }
 
-.mylabeltext {
+.mylabeltext_diamond {
+    position: relative;
     text-align: center;
-    display: flex;
     vertical-align: central;
     background-color: transparent;
     border: none;
     resize: none;
-    width: 80px;
-    height: 60px;
-    padding: 5px;
+    width: 100px;
+    height: 50px;
+    padding: 12%;
+    margin-top: 5px;
     overflow: hidden;
     box-sizing: padding-box;
+    z-index: 2;
+
+    font-family: sans-serif;
+    line-height: 11px;
     font-size: 11px;
-    z-index: 99999;
 }
 
-.mylabeltext:focus {
+.mylabeltext_diamond:focus {
     outline: none !important;
     border: 1px solid transparent;
-    box-shadow: 0 0 10px #719ECE;
-    z-index: 99999;
+    box-shadow: 0 0 2px #719ECE;
+    z-index: 2;
 }
 
